@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="sponsorAdapter"
+            type="com.eman.onlineshein.presentation.ui.main.SponsorAdapter" />
+
+        <variable
+            name="vendorAdapter"
+            type="com.eman.onlineshein.presentation.ui.main.VendorAdapter" />
+
+        <variable
+            name="mainAdapter"
+            type="com.eman.onlineshein.presentation.ui.main.DiscountAdapter" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@color/back"
+            android:layout_height="match_parent">
+
+
+            <com.synnapps.carouselview.CarouselView
+                android:id="@+id/carouselView"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="5dp"
+                app:fillColor="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:pageColor="@color/white"
+                app:radius="3dp"
+                app:slideInterval="3000"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="1dp" />
+
+            <TextView
+                android:id="@+id/titleSponser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/sponser"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carouselView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_sponser"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:adapter="@{sponsorAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/titleSponser"
+                tools:listitem="@layout/row_sponser" />
+
+            <TextView
+                android:id="@+id/titleVendor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/vendor"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/titleSponser"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_sponser" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:adapter="@{vendorAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/titleVendor"
+                tools:listitem="@layout/row_vendor" />
+
+            <TextView
+                android:id="@+id/titleDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/mostDiscount"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/titleSponser"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_discount"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:adapter="@{mainAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/titleDiscount"
+                app:spanCount="2"
+                tools:listitem="@layout/row_discount" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

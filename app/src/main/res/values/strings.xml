@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">OnlineShein</string>
+    <string name="sponser">Sponsor</string>
+    <string name="vendor">Vendor</string>
+    <string name="mostDiscount">Most Discount</string>
+    <string name="price">"Price : "</string>
+    <string name="description">Description</string>
+    <string name="reviews">"Reviews "</string>
+</resources>
